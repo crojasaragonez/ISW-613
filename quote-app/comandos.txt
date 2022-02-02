@@ -1,0 +1,30 @@
+sail artisan migrate
+sail artisan make:model Client -mfs
+sail artisan tinker
+sail artisan db:seed
+
+
+sail artisan make:model Ingredient -mfs
+
+
+
+Migración:
+  - Historial de todos los cambios en la bd
+  - Cada archivo en la carpeta "database/migrations" hace cambios en la base de datos
+
+Model => Capa encargada de los datos
+View => Capa encargada de despliegue de información y captura de datos del usuario.
+Controller => Capa que une a los modelos con la vista
+
+
+Model:
+  - Una clase php
+  - Interactuan con la base de datos facilmente
+  - Nos ayudan a consultar, crear, actualizar y eliminar registros
+
+Factory:
+  - Fábrica de datos RANDOM
+  - Algoritmos para generar datos aleatorios
+
+Seeder
+  - Cuantos elementos de cada tabla se deben crear
