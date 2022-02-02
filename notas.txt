@@ -1,0 +1,42 @@
+ISW-613
+
+Frontend + Backend
+
+Tecnologías del curso:
+
+Php 8.1
+Postgres 13 o 14
+Mysql 8
+Docker
+Sublime text, VS Code, vi.
+Html, css(bootstrap), js (vue.js)
+
+Evaluación:
+
+Quiz   		15
+Tarea  		5
+Exposiciones    10
+Examen Final    20
+Proyecto 1      25
+Proyecto 2      25
+
+Sistema de bandera azul.			
+Un Service Desk					
+Taxis						
+Ecommerce (inventarios, carrito de compras)	4
+Producción (turnos de trabajo)			1
+CRM (Customer Relationship Management)          2
+Sistema bancario				1
+Cotizador*					6
+
+
+
+
+
+
+
+
+
+
+
+

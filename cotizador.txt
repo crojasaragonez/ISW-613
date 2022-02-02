@@ -1,0 +1,24 @@
+Requerimientos
+
+Autenticación y roles
+	Admin (puede ver y editar todo)
+	Cotizador (puede crear, editar y eliminar cotizaciones)
+	Cliente (puede ver cotizaciones existentes)
+
+Productos terminados
+	Costo
+	Margen de ganancia
+	Iva
+	Receta
+		Materias Primas
+		Mano de obra
+
+Cotización
+	Cliente
+	Estado (Creada, Enviada, Vista, Aprobada, Completada)
+	Auditoría (created_at, created_by, updated_at, updated_by)
+	Fecha
+	Lineas de detalle
+	Subtotales
+	Totales
+
