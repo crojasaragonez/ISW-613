@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             ProductSeeder::class,
             IngredientCostsSeeder::class,
             QuoteSeeder::class,
-            QuoteDetailSeeder::class
+            QuoteDetailSeeder::class,
+            IngredientProductSeeder::class
         ]);
     }
 }
