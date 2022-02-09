@@ -14,4 +14,19 @@ class Quote extends Model
     {
         return $this->hasMany(QuoteDetail::class);
     }
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
+
+    public function created_by()
+    {
+        return $this->belongsTo(User::class, 'created_by_user_id');
+    }
+
+    public function updated_by()
+    {
+        return $this->belongsTo(User::class, 'updated_by_user_id');
+    }
 }
