@@ -2,215 +2,251 @@
 <!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
 <!-- Active URL: https://ondras.zarovi.cz/sql/demo/ -->
 <sql>
-<datatypes db="mysql">
-	<group label="Numeric" color="rgb(238,238,170)">
-		<type label="Integer" length="0" sql="INTEGER" quote=""/>
-	 	<type label="TINYINT" length="0" sql="TINYINT" quote=""/>
-	 	<type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
-	 	<type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
-	 	<type label="INT" length="0" sql="INT" quote=""/>
-		<type label="BIGINT" length="0" sql="BIGINT" quote=""/>
-		<type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
-		<type label="Single precision" length="0" sql="FLOAT" quote=""/>
-		<type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
-	</group>
-
-	<group label="Character" color="rgb(255,200,200)">
-		<type label="Char" length="1" sql="CHAR" quote="'"/>
-		<type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
-		<type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
-		<type label="Binary" length="1" sql="BINARY" quote="'"/>
-		<type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
-		<type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
-	</group>
-
-	<group label="Date &amp; Time" color="rgb(200,255,200)">
-		<type label="Date" length="0" sql="DATE" quote="'"/>
-		<type label="Time" length="0" sql="TIME" quote="'"/>
-		<type label="Datetime" length="0" sql="DATETIME" quote="'"/>
-		<type label="Year" length="0" sql="YEAR" quote=""/>
-		<type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
-	</group>
-	
-	<group label="Miscellaneous" color="rgb(200,200,255)">
-		<type label="ENUM" length="1" sql="ENUM" quote=""/>
-		<type label="SET" length="1" sql="SET" quote=""/>
-		<type label="Bit" length="0" sql="bit" quote=""/>
-	</group>
-</datatypes><table x="543" y="186" name="users">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="email" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="password" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="922" y="165" name="products">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="recipe_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="is_active" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="197" y="205" name="roles">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="name" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="352" y="339" name="role_user">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="user_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="id" />
-</row>
-<row name="role_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="roles" row="id" />
-</row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="1181" y="372" name="ingredients">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="name" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="unit" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="quantity" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="1151" y="185" name="ingredient_product">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="product_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="products" row="id" />
-</row>
-<row name="ingredient_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="ingredients" row="id" />
-</row>
-<row name="quantity" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="476" y="575" name="clients">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="name" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="email" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="960" y="368" name="quotes">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="date" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="client_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="clients" row="id" />
-</row>
-<row name="state" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="created_at" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="updated_at" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="created_by" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="updated_by" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="694" y="287" name="quote_details">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="product_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="products" row="id" />
-</row>
-<row name="quote_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="quotes" row="id" />
-</row>
-<row name="quantity" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="unit_price" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="1192" y="544" name="ingredient_costs">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="ingredient_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="ingredients" row="id" />
-</row>
-<row name="cost" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="date" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
+	<datatypes db="mysql">
+		<group color="rgb(238,238,170)" label="Numeric">
+			<type label="Integer" length="0" quote="" sql="INTEGER"/>
+			<type label="TINYINT" length="0" quote="" sql="TINYINT"/>
+			<type label="SMALLINT" length="0" quote="" sql="SMALLINT"/>
+			<type label="MEDIUMINT" length="0" quote="" sql="MEDIUMINT"/>
+			<type label="INT" length="0" quote="" sql="INT"/>
+			<type label="BIGINT" length="0" quote="" sql="BIGINT"/>
+			<type label="Decimal" length="1" quote="" re="DEC" sql="DECIMAL"/>
+			<type label="Single precision" length="0" quote="" sql="FLOAT"/>
+			<type label="Double precision" length="0" quote="" re="DOUBLE" sql="DOUBLE"/>
+		</group>
+		<group color="rgb(255,200,200)" label="Character">
+			<type label="Char" length="1" quote="'" sql="CHAR"/>
+			<type label="Varchar" length="1" quote="'" sql="VARCHAR"/>
+			<type label="Text" length="0" quote="'" re="TEXT" sql="MEDIUMTEXT"/>
+			<type label="Binary" length="1" quote="'" sql="BINARY"/>
+			<type label="Varbinary" length="1" quote="'" sql="VARBINARY"/>
+			<type label="BLOB" length="0" quote="'" re="BLOB" sql="BLOB"/>
+		</group>
+		<group color="rgb(200,255,200)" label="Date &amp; Time">
+			<type label="Date" length="0" quote="'" sql="DATE"/>
+			<type label="Time" length="0" quote="'" sql="TIME"/>
+			<type label="Datetime" length="0" quote="'" sql="DATETIME"/>
+			<type label="Year" length="0" quote="" sql="YEAR"/>
+			<type label="Timestamp" length="0" quote="'" sql="TIMESTAMP"/>
+		</group>
+		<group color="rgb(200,200,255)" label="Miscellaneous">
+			<type label="ENUM" length="1" quote="" sql="ENUM"/>
+			<type label="SET" length="1" quote="" sql="SET"/>
+			<type label="Bit" length="0" quote="" sql="bit"/>
+		</group>
+	</datatypes>
+	<table name="users" x="543" y="186">
+		<row autoincrement="1" name="id" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="email" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="password" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<key name="" type="PRIMARY">
+			<part>id</part>
+		</key>
+	</table>
+	<table name="products" x="922" y="165">
+		<row autoincrement="1" name="id" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="name" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="is_active" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<key name="" type="PRIMARY">
+			<part>id</part>
+		</key>
+	</table>
+	<table name="roles" x="197" y="205">
+		<row autoincrement="1" name="id" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="name" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<key name="" type="PRIMARY">
+			<part>id</part>
+		</key>
+	</table>
+	<table name="role_user" x="352" y="339">
+		<row autoincrement="1" name="id" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="user_id" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+			<relation row="id" table="users"/>
+		</row>
+		<row autoincrement="0" name="role_id" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+			<relation row="id" table="roles"/>
+		</row>
+		<key name="" type="PRIMARY">
+			<part>id</part>
+		</key>
+	</table>
+	<table name="ingredients" x="1181" y="372">
+		<row autoincrement="1" name="id" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="name" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="unit" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="quantity" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<key name="" type="PRIMARY">
+			<part>id</part>
+		</key>
+	</table>
+	<table name="ingredient_product" x="1151" y="185">
+		<row autoincrement="1" name="id" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="product_id" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+			<relation row="id" table="products"/>
+		</row>
+		<row autoincrement="0" name="ingredient_id" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+			<relation row="id" table="ingredients"/>
+		</row>
+		<row autoincrement="0" name="quantity" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<key name="" type="PRIMARY">
+			<part>id</part>
+		</key>
+	</table>
+	<table name="clients" x="476" y="575">
+		<row autoincrement="1" name="id" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="name" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="email" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<key name="" type="PRIMARY">
+			<part>id</part>
+		</key>
+	</table>
+	<table name="quotes" x="960" y="368">
+		<row autoincrement="1" name="id" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="date" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="client_id" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+			<relation row="id" table="clients"/>
+		</row>
+		<row autoincrement="0" name="state" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="created_at" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="updated_at" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="created_by" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="updated_by" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<key name="" type="PRIMARY">
+			<part>id</part>
+		</key>
+	</table>
+	<table name="quote_details" x="694" y="287">
+		<row autoincrement="1" name="id" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="product_id" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+			<relation row="id" table="products"/>
+		</row>
+		<row autoincrement="0" name="quote_id" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+			<relation row="id" table="quotes"/>
+		</row>
+		<row autoincrement="0" name="quantity" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="unit_price" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<key name="" type="PRIMARY">
+			<part>id</part>
+		</key>
+	</table>
+	<table name="ingredient_costs" x="1192" y="544">
+		<row autoincrement="1" name="id" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="ingredient_id" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+			<relation row="id" table="ingredients"/>
+		</row>
+		<row autoincrement="0" name="cost" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row autoincrement="0" name="date" null="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<key name="" type="PRIMARY">
+			<part>id</part>
+		</key>
+	</table>
 </sql>
-

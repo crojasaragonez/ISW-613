@@ -3,6 +3,7 @@
 ```bash
   install Docker in your OS
   git clone git@github.com:crojasaragonez/ISW-613.git
+  git clone https://github.com/crojasaragonez/ISW-613
   cd ISW-613/quote-app
   docker run --rm \
     -u "$(id -u):$(id -g)" \

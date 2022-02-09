@@ -21,6 +21,7 @@ Model:
   - Una clase php
   - Interactuan con la base de datos facilmente
   - Nos ayudan a consultar, crear, actualizar y eliminar registros
+  - Las clases de tipo Model siempre son en singular
 
 Factory:
   - Fábrica de datos RANDOM
