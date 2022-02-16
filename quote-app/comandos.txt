@@ -29,3 +29,11 @@ Factory:
 
 Seeder
   - Cuantos elementos de cada tabla se deben crear
+
+
+# autenticación
+
+sail composer require laravel/breeze --dev
+sail artisan breeze:install
+sail npm install
+sail npm run dev
