@@ -19,17 +19,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
-
-Route::get('/clients', [ClientController::class, 'index'])->name('clients');
-Route::get('/clients/create', [ClientController::class, 'create']);
-Route::get('/clients/{id}/edit', [ClientController::class, 'edit']);
-Route::get('/clients/{id}/delete', [ClientController::class, 'delete']);
-Route::post('/clients', [ClientController::class, 'store']);
-Route::put('/clients/{id}', [ClientController::class, 'update']);
-Route::delete('/clients/{id}', [ClientController::class, 'destroy']);
+Route::group(['middleware' => ['auth']], function () {
+    //only authenticated users can access these routes
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::get('/clients', [ClientController::class, 'index'])->name('clients');
+    Route::get('/clients/create', [ClientController::class, 'create']);
+    Route::get('/clients/{id}/edit', [ClientController::class, 'edit']);
+    Route::get('/clients/{id}/delete', [ClientController::class, 'delete']);
+    Route::post('/clients', [ClientController::class, 'store']);
+    Route::put('/clients/{id}', [ClientController::class, 'update']);
+    Route::delete('/clients/{id}', [ClientController::class, 'destroy']);
+});
