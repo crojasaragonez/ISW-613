@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ClientController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,3 +24,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/clients', [ClientController::class, 'index'])->name('clients');
+Route::get('/clients/create', [ClientController::class, 'create']);
+Route::get('/clients/{id}/edit', [ClientController::class, 'edit']);
+Route::get('/clients/{id}/delete', [ClientController::class, 'delete']);
+Route::post('/clients', [ClientController::class, 'store']);
+Route::put('/clients/{id}', [ClientController::class, 'update']);
+Route::delete('/clients/{id}', [ClientController::class, 'destroy']);
