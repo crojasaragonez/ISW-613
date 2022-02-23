@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\IngredientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,11 @@ Route::get('/clients/{id}/delete', [ClientController::class, 'delete']);
 Route::post('/clients', [ClientController::class, 'store']);
 Route::put('/clients/{id}', [ClientController::class, 'update']);
 Route::delete('/clients/{id}', [ClientController::class, 'destroy']);
+
+Route::get('/ingredients', [IngredientController::class, 'index'])->name('ingredients');
+Route::get('/ingredients/create', [IngredientController::class, 'create']);
+Route::get('/ingredients/{id}/edit', [IngredientController::class, 'edit']);
+Route::get('/ingredients/{id}/delete', [IngredientController::class, 'delete']);
+Route::post('/ingredients', [IngredientController::class, 'store']);
+Route::put('/ingredients/{id}', [IngredientController::class, 'update']);
+Route::delete('/ingredients/{id}', [IngredientController::class, 'destroy']);
