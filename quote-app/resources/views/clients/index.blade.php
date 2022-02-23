@@ -10,8 +10,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     {{ $clients->links() }}
-                    <a href="/clients/create">New Client</a>
-                    <table class="table-auto min-w-full divide-y divide-gray-200">
+                    <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="/clients/create">New Client</a>
+                    <table class="table-auto min-w-full divide-y divide-gray-200 mt-6">
                         <thead class="bg-gray-50">
                         <tr>
                             <form method="GET">
@@ -25,7 +25,7 @@
                                     <input type="text" name="email" value="{{request()->get('email')}}">
                                 </td>
                                 <td>
-                                    <button>Filter</button>
+                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Filter</button>
                                 </td>
                             </form>
                         </tr>
@@ -43,8 +43,8 @@
                             <td>{{$client->name}}</td>
                             <td>{{$client->email}}</td>
                             <td>
-                                <a href="/clients/{{$client->id}}/edit">Edit</a>
-                                <a href="/clients/{{$client->id}}/delete">Delete</a>
+                                <a class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold px-4 rounded" href="/clients/{{$client->id}}/edit">Edit</a>
+                                <a class="bg-red-500 hover:bg-red-700 text-white font-bold px-4 rounded" href="/clients/{{$client->id}}/delete">Delete</a>
                             </td>
                         </tr>
                         @empty
