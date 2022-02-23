@@ -25,8 +25,8 @@
                         <input type="text" name="name" required value="{{$client->name}}">
                         <label>Email:</label>
                         <input type="email" name="email" required value="{{$client->email}}">
-                        <button>Save</button>
-                        <a href="/clients">Cancel</a>
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
+                        <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" href="/clients">Cancel</a>
                     </form>
                 </div>
             </div>
