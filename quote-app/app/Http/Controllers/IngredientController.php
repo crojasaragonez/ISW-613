@@ -53,14 +53,6 @@ class IngredientController extends Controller
      */
     public function store(Request $request)
     {
-        /*
-        Forma Larga
-        $client = new Client();
-        $client->name = $request->name;
-        $client->email = $request->email;
-        $client->save();
-        Forma Corta:
-        */
         $request->validate([
             'name' => 'required',
             'email' => 'required|email'
@@ -68,17 +60,6 @@ class IngredientController extends Controller
 
         Client::create($request->all());
         return redirect('/clients');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Ingredient  $ingredient
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Ingredient $ingredient)
-    {
-        //
     }
 
     /**
