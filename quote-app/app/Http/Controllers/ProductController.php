@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\IngredientProduct;
 use App\Models\Ingredient;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductController extends Controller
 {
@@ -52,6 +53,7 @@ class ProductController extends Controller
         ]);
 
         Product::create($request->all());
+        alert()->success('Successfull','The product has been saved');
         return redirect('/products');
     }
 
@@ -64,6 +66,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         $ingredients = Ingredient::all();
         $recipe_ingredients = IngredientProduct::where('product_id', $product->id)->get();
+        alert()->success('Successfull','The ingredient has been added to product');
         return view('products.recipe', [
             'product' => $product,
             'recipe_ingredients' => $recipe_ingredients,
@@ -74,6 +77,7 @@ class ProductController extends Controller
     public function removeIngredient(Request $request)
     {
         IngredientProduct::where(['id' => $request->id, 'product_id' => $request->product_id])->delete();
+        alert()->success('Successfull','The ingredient has been removed of product');
         return redirect("/products/$request->product_id/recipe");
     }
 
@@ -109,6 +113,7 @@ class ProductController extends Controller
         ]);
         $product = Product::find($request->id);
         $product->update($request->all());
+        alert()->success('Successfull','The product has been updated');
         return redirect('/products');
     }
 
@@ -122,9 +127,12 @@ class ProductController extends Controller
     {
         try {
             Product::destroy($id);
+            alert()->success('Successfull','The product has been deleted');
+            return redirect('/products');
         } catch (\Throwable $th) {
-            return response('Error', 200);
+            alert()->error('Error','Error to product delete');
+            return redirect('/products');
         }
-        return redirect('/products');
+        
     }
 }
