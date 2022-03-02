@@ -13,6 +13,7 @@
     composer install --ignore-platform-reqs
   cp .env.example .env
   alias sail='bash vendor/bin/sail'
+  sail npm run dev
   sail up
 ```
 
