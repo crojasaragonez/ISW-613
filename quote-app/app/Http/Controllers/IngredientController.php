@@ -32,7 +32,6 @@ class IngredientController extends Controller
         }
 
         return view('ingredients.index', ['ingredients' => $ingredients->paginate(12)]);
-    
     }
 
     /**
@@ -55,11 +54,12 @@ class IngredientController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email'
+            'unit' => 'required',
+            'quantity' => 'required',
         ]);
 
-        Client::create($request->all());
-        return redirect('/clients');
+        Ingredient::create($request->all());
+        return redirect('/ingredients');
     }
 
     /**
