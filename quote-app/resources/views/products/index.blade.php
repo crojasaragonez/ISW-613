@@ -43,6 +43,7 @@
                             <td>
                                 <a class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold px-4 rounded" href="/products/{{$product->id}}/edit">Edit</a>
                                 <a class="bg-red-500 hover:bg-red-700 text-white font-bold px-4 rounded" href="/products/{{$product->id}}/delete">Delete</a>
+                                <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded" href="/products/{{$product->id}}/recipe">Recipe</a>
                             </td>
                         </tr>
                         @empty
