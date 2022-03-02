@@ -45,6 +45,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/products/{id}', [ProductController::class, 'update']);
     Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 
+    Route::get('/products/{id}/recipe', [ProductController::class, 'recipe']);
+    Route::post('/products/{id}/recipe', [ProductController::class, 'recipe']);
+    Route::delete('/products/{product_id}/recipe/{id}', [ProductController::class, 'removeIngredient']);
+
     Route::get('/ingredients', [IngredientController::class, 'index'])->name('ingredients');
     Route::get('/ingredients/create', [IngredientController::class, 'create']);
     Route::get('/ingredients/{id}/edit', [IngredientController::class, 'edit']);
@@ -52,7 +56,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/ingredients', [IngredientController::class, 'store']);
     Route::put('/ingredients/{id}', [IngredientController::class, 'update']);
     Route::delete('/ingredients/{id}', [IngredientController::class, 'destroy']);
-
-
 });
 

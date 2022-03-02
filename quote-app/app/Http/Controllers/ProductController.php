@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\IngredientProduct;
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -53,15 +55,26 @@ class ProductController extends Controller
         return redirect('/products');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
+    public function recipe(Request $request, $id)
     {
-        //
+        if ($request->isMethod('post')) {
+            IngredientProduct::create($request->all());
+            return redirect("/products/$id/recipe");
+        }
+        $product = Product::find($id);
+        $ingredients = Ingredient::all();
+        $recipe_ingredients = IngredientProduct::where('product_id', $product->id)->get();
+        return view('products.recipe', [
+            'product' => $product,
+            'recipe_ingredients' => $recipe_ingredients,
+            'ingredients' => $ingredients
+        ]);
+    }
+
+    public function removeIngredient(Request $request)
+    {
+        IngredientProduct::where(['id' => $request->id, 'product_id' => $request->product_id])->delete();
+        return redirect("/products/$request->product_id/recipe");
     }
 
     public function delete($id)
@@ -106,16 +119,12 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {   
+    {
         try {
             Product::destroy($id);
-
         } catch (\Throwable $th) {
-            
             return response('Error', 200);
         }
-        
-        
         return redirect('/products');
     }
 }
