@@ -53,7 +53,7 @@
                             </td>
                         </tr>
                         @empty
-                        <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <tr>
                             <td class="text-center" colspan="5">No data found 😥</td>
                         </tr>
                         @endforelse
