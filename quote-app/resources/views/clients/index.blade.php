@@ -38,7 +38,7 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                         @forelse ($clients as $client)
-                        <tr>
+                        <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
                             <td>{{$client->id}}</td>
                             <td>{{$client->name}}</td>
                             <td>{{$client->email}}</td>

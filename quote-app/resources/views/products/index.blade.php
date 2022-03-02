@@ -36,7 +36,7 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                         @forelse ($products as $product)
-                        <tr>
+                        <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
                             <td>{{$product->id}}</td>
                             <td>{{$product->name}}</td>
                             <td>{{$product->is_active}}</td>

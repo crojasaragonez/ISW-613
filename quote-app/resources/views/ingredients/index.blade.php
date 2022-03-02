@@ -42,7 +42,7 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                         @forelse ($ingredients as $ingredient)
-                        <tr>
+                        <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
                             <td>{{$ingredient->id}}</td>
                             <td>{{$ingredient->name}}</td>
                             <td>{{$ingredient->unit}}</td>
