@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('clients')" :active="request()->routeIs('clients')">
                         Clients
                     </x-nav-link>
+                    <x-nav-link :href="route('products')" :active="request()->routeIs('products')">
+                        Product
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -71,6 +74,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('clients')" :active="request()->routeIs('clients')">
                 Clients
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('products')" :active="request()->routeIs('products')">
+                Products
             </x-responsive-nav-link>
         </div>
 

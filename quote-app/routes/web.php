@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +35,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/clients', [ClientController::class, 'store']);
     Route::put('/clients/{id}', [ClientController::class, 'update']);
     Route::delete('/clients/{id}', [ClientController::class, 'destroy']);
+
+    // Products
+
+    Route::get('/products', [ProductController::class, 'index'])->name('products');
+    Route::get('/products/create', [ProductController::class, 'create']);
+    Route::get('/products/{id}/edit', [ProductController::class, 'edit']);
+    Route::get('/products/{id}/delete', [ProductController::class, 'delete']);
+    Route::post('/products', [ProductController::class, 'store']);
+    Route::put('/products/{id}', [ProductController::class, 'update']);
+    Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 });
