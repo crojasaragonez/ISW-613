@@ -52,13 +52,17 @@ class IngredientController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'unit' => 'required',
-            'quantity' => 'required',
-        ]);
+        try{
+            $request->validate([
+                'name' => 'required',
+                'unit' => 'required',
+                'quantity' => 'required',
+            ]);
 
-        Ingredient::create($request->all());
+            Ingredient::create($request->all());
+        }catch (\Throwable $th) {
+            return response('Error', 200);
+        }
         return redirect('/ingredients');
     }
 
@@ -70,14 +74,22 @@ class IngredientController extends Controller
      */
     public function edit($id)
     {
+        try{
         $ingredients = Ingredient::find($id);
         return view('ingredients.edit', ['ingredients' => $ingredients]);
+        } catch (\Throwable $th) {
+            return response('Error', 200);
+        }
     }
 
     public function delete($id)
     {
-        $ingredients = Ingredient::find($id);
+        try{
+            $ingredients = Ingredient::find($id);
         return view('ingredients.delete', ['ingredients' => $ingredients]);
+        }catch (\Throwable $th) {
+            return response('Error', 200);
+        }
     }
 
     /**
@@ -89,6 +101,7 @@ class IngredientController extends Controller
      */
     public function update(Request $request)
     {
+        try{
         $request->validate([
             'name' => 'required',
             'unit' => 'required',
@@ -96,6 +109,9 @@ class IngredientController extends Controller
         ]);
         $ingredients = Ingredient::find($request->id);
         $ingredients->update($request->all());
+    }catch (\Throwable $th) {
+        return response('Error', 200);
+    }
         return redirect('/ingredients');
     }
 
@@ -107,7 +123,12 @@ class IngredientController extends Controller
      */
     public function destroy($id)
     {
-        Ingredient::destroy($id);
+        try{
+            Ingredient::destroy($id);
+        }catch (\Throwable $th) {
+            return response('Error', 200);
+        }
         return redirect('/ingredients');
+        
     }
 }

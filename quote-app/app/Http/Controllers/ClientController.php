@@ -57,12 +57,16 @@ class ClientController extends Controller
         $client->save();
         Forma Corta:
         */
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email'
-        ]);
+        try{
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|email'
+            ]);
 
-        Client::create($request->all());
+            Client::create($request->all());
+        }catch (\Throwable $th) {
+        return response('Error', 200);
+    }
         return redirect('/clients');
     }
 
@@ -74,14 +78,22 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        $client = Client::find($id);
-        return view('clients.edit', ['client' => $client]);
+        try{
+            $client = Client::find($id);
+            return view('clients.edit', ['client' => $client]);
+        }catch (\Throwable $th) {
+            return response('Error', 200);
+        }
     }
 
     public function delete($id)
     {
-        $client = Client::find($id);
-        return view('clients.delete', ['client' => $client]);
+        try{
+            $client = Client::find($id);
+            return view('clients.delete', ['client' => $client]);
+        }catch (\Throwable $th) {
+            return response('Error', 200);
+        }
     }
 
     /**
@@ -92,13 +104,17 @@ class ClientController extends Controller
      */
     public function update(Request $request)
     {
-        $request->validate([
+        try{
+            $request->validate([
             'name' => 'required',
             'email' => 'required|email'
-        ]);
-        $client = Client::find($request->id);
-        $client->update($request->all());
-        return redirect('/clients');
+            ]);
+            $client = Client::find($request->id);
+            $client->update($request->all());
+            return redirect('/clients');
+        }catch (\Throwable $th) {
+            return response('Error', 200);
+    }
     }
 
     /**
@@ -109,7 +125,11 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        Client::destroy($id);
-        return redirect('/clients');
+        try{
+            Client::destroy($id);
+            return redirect('/clients');
+        }catch (\Throwable $th) {
+            return response('Error', 200);
+        }
     }
 }

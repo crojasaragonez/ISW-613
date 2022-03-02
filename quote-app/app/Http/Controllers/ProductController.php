@@ -47,40 +47,58 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        try{
         $request->validate([
             'name' => 'required',
         ]);
 
         Product::create($request->all());
+        }catch (\Throwable $th) {
+            return response('Error', 200);
+    }
         return redirect('/products');
     }
 
     public function recipe(Request $request, $id)
     {
-        if ($request->isMethod('post')) {
+        try{
+            if ($request->isMethod('post')) {
             IngredientProduct::create($request->all());
             return redirect("/products/$id/recipe");
-        }
-        $product = Product::find($id);
-        $ingredients = Ingredient::all();
-        $recipe_ingredients = IngredientProduct::where('product_id', $product->id)->get();
-        return view('products.recipe', [
-            'product' => $product,
-            'recipe_ingredients' => $recipe_ingredients,
-            'ingredients' => $ingredients
-        ]);
+            }
+            $product = Product::find($id);
+            $ingredients = Ingredient::all();
+            $recipe_ingredients = IngredientProduct::where('product_id', $product->id)->get();
+            return view('products.recipe', [
+                'product' => $product,
+                'recipe_ingredients' => $recipe_ingredients,
+                'ingredients' => $ingredients
+            ]);
+        }catch (\Throwable $th) {
+        return response('Error', 200);
+    }
     }
 
     public function removeIngredient(Request $request)
     {
+        try{
+
         IngredientProduct::where(['id' => $request->id, 'product_id' => $request->product_id])->delete();
+        } catch (\Throwable $th) {
+            return response('Error', 200);
+        }
+
         return redirect("/products/$request->product_id/recipe");
     }
 
     public function delete($id)
     {
-        $product = Product::find($id);
-        return view('products.delete', ['product' => $product]);
+        try{
+            $product = Product::find($id);
+            return view('products.delete', ['product' => $product]);
+        }catch (\Throwable $th) {
+            return response('Error', 200);
+        }
     }
     /**
      * Show the form for editing the specified resource.
@@ -90,8 +108,12 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::find($id);
-        return view('products.edit', ['product' => $product]);
+        try{
+            $product = Product::find($id);
+            return view('products.edit', ['product' => $product]);
+        } catch (\Throwable $th) {
+            return response('Error', 200);
+        }
     }
 
     /**
@@ -103,12 +125,16 @@ class ProductController extends Controller
      */
     public function update(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'is_active' => 'required'
-        ]);
-        $product = Product::find($request->id);
-        $product->update($request->all());
+        try{
+            $request->validate([
+                'name' => 'required',
+                'is_active' => 'required'
+            ]);
+            $product = Product::find($request->id);
+            $product->update($request->all());
+        } catch (\Throwable $th) {
+            return response('Error', 200);
+        }
         return redirect('/products');
     }
 
