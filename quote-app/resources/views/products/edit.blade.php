@@ -25,8 +25,8 @@
                         <input type="text" name="name" required value="{{$product->name}}">
                         <label>Is Active:</label>
                         <input type="is_active" name="is_active" required value="{{$product->is_active}}">
-                        <button>Save</button>
-                        <a href="/products">Cancel</a>
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
+                        <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" href="/products">Cancel</a>
                     </form>
                 </div>
             </div>
