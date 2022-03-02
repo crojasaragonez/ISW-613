@@ -107,7 +107,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {   
-        //$id->validate(['required', Product::exists('quote_details', 'id')]);
         try {
             Product::destroy($id);
 
