@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ingredient;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class IngredientController extends Controller
 {
@@ -59,6 +60,7 @@ class IngredientController extends Controller
         ]);
 
         Ingredient::create($request->all());
+        alert()->success('Successfull','The ingredient has been saved');
         return redirect('/ingredients');
     }
 
@@ -96,6 +98,7 @@ class IngredientController extends Controller
         ]);
         $ingredients = Ingredient::find($request->id);
         $ingredients->update($request->all());
+        alert()->success('Successfull','The ingredient has been updated');
         return redirect('/ingredients');
     }
 
@@ -108,6 +111,7 @@ class IngredientController extends Controller
     public function destroy($id)
     {
         Ingredient::destroy($id);
+        alert()->success('Successfull','The ingredient has been deleted');
         return redirect('/ingredients');
     }
 }
