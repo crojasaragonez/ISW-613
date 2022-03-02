@@ -12,11 +12,11 @@
                     <form method="POST" action="/clients/{{$client->id}}">
                         @csrf
                         @method('DELETE')
-                        <p>
-                            Are you sure to delete {{$client->name}}?
+                        <p class="mb-6">
+                            Are you sure to delete <strong>{{$client->name}}</strong>?
                         </p>
-                        <button>Confirm</button>
-                        <a href="/clients">Cancel</a>
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Confirm</button>
+                        <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" href="/clients">Cancel</a>
                     </form>
                 </div>
             </div>

@@ -42,3 +42,4 @@ sail npm run dev
 # CRUD
 
 sail artisan make:controller -m Client ClientController
+sail npm run dev

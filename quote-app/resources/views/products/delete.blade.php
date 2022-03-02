@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Create Client
+            Delete Product?
         </h2>
     </x-slot>
 
@@ -18,14 +18,14 @@
                             </ul>
                         </div>
                     @endif
-                    <form method="POST" action="/clients">
+                    <form method="POST" action="/products/{{$product->id}}">
                         @csrf
-                        <label>Name:</label>
-                        <input type="text" name="name" required>
-                        <label>Email:</label>
-                        <input type="email" name="email" required>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
-                        <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" href="/clients">Cancel</a>
+                        @method('DELETE')
+                        <p>
+                            Are you sure to delete {{$product->name}}?
+                        </p>
+                        <button>Confirm</button>
+                        <a href="/products">Cancel</a>
                     </form>
                 </div>
             </div>
