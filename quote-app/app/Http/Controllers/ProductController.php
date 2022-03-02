@@ -117,6 +117,6 @@ class ProductController extends Controller
         }
         
         
-        return redirect('/products')->response;
+        return redirect('/products');
     }
 }
