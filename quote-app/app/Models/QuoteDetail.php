@@ -15,6 +15,11 @@ class QuoteDetail extends Model
         return $this->belongsTo(Quote::class);
     }
 
+    public function depots()
+    {
+        return $this->belongsTo(Depot::class);
+    }
+
     public function product()
     {
         return $this->belongsTo(Product::class);

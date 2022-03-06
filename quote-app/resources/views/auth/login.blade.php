@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center float">
                     <a href="{{ route('register') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
+                        <img src="https://emojitool.com/img/joypixels/6.5/flag-costa-rica-2354.png" class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
                     <x-nav-link :href="route('register')" :active="request()->routeIs('register')" class="block h-10 w-auto fill-current text-gray-600" >
                         Register
@@ -20,7 +20,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <img src="https://www.utn.ac.cr/sites/all/themes/utn_lx/logo.png">
             </a>
         </x-slot>
 
