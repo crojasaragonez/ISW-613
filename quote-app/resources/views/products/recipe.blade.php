@@ -13,7 +13,7 @@
                     <form method="POST" action="/products/{{$product->id}}/recipe">
                         @csrf
                         <input type="hidden" name="product_id" value="{{$product->id}}">
-                        <label>Ingredient:</label>
+                        <label>Add Ingredient:</label>
                         <select name="ingredient_id">
                             @foreach ($ingredients as $ingredient)
                             <option value="{{$ingredient->id}}">
@@ -25,7 +25,8 @@
                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
                         <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" href="/products">Cancel</a>
                     </form>
-                    <ul>
+                    <ul class="ingredients">
+                        <label>Ingredients:</label>
                         @forelse ($recipe_ingredients as $line)
                         <li class="inline">
                             <div class="mr-2">
