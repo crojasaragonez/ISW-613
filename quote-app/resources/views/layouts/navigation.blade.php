@@ -11,17 +11,17 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                <div role="tablist" class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link role="tab" aria-selected="true" :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('clients')" :active="request()->routeIs('clients')">
+                    <x-nav-link role="tab" aria-selected="false" :href="route('clients')" :active="request()->routeIs('clients')">
                         Clients
                     </x-nav-link>
-                    <x-nav-link :href="route('ingredients')" :active="request()->routeIs('ingredients')">
+                    <x-nav-link role="tab" aria-selected="false" :href="route('ingredients')" :active="request()->routeIs('ingredients')">
                         Ingredients
                     </x-nav-link>
-                    <x-nav-link :href="route('products')" :active="request()->routeIs('products')">
+                    <x-nav-link role="tab" aria-selected="false" :href="route('products')" :active="request()->routeIs('products')">
                         Products
                     </x-nav-link>
                 </div>

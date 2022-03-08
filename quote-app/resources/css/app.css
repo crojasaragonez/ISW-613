@@ -6,3 +6,8 @@
 .inline{
   display: flex;
 }
+
+tr th{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
