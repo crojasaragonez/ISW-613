@@ -30,19 +30,19 @@
                             </form>
                         </tr>
                         <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th></th>
+                            <th scope="col" class="px-6 py-4 text-left uppercase tracking-wider">Id</th>
+                            <th scope="col" class="px-6 py-4 text-left uppercase tracking-wider">Name</th>
+                            <th scope="col" class="px-6 py-4 text-left uppercase tracking-wider">Email</th>
+                            <th scope="col" class="px-6 py-4 text-left uppercase tracking-wider"></th>
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                         @forelse ($clients as $client)
                         <tr>
-                            <td>{{$client->id}}</td>
-                            <td>{{$client->name}}</td>
-                            <td>{{$client->email}}</td>
-                            <td>
+                            <td class="px-6 py-2 whitespace-nowrap">{{$client->id}}</td>
+                            <td class="px-6 py-2 whitespace-nowrap">{{$client->name}}</td>
+                            <td class="px-6 py-2 whitespace-nowrap">{{$client->email}}</td>
+                            <td class="px-6 py-2 whitespace-nowrap">
                                 <a class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold px-4 rounded" href="/clients/{{$client->id}}/edit">Edit</a>
                                 <a class="bg-red-500 hover:bg-red-700 text-white font-bold px-4 rounded" href="/clients/{{$client->id}}/delete">Delete</a>
                             </td>

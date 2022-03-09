@@ -28,19 +28,19 @@
                             </form>
                         </tr>
                         <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>is Active</th>
-                            <th></th>
+                            <th scope="col" class="px-6 py-4 text-left uppercase tracking-wider">Id</th>
+                            <th scope="col" class="px-6 py-4 text-left uppercase tracking-wider">Name</th>
+                            <th scope="col" class="px-6 py-4 text-left uppercase tracking-wider">is Active</th>
+                            <th scope="col" class="px-6 py-4 text-left uppercase tracking-wider"></th>
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                         @forelse ($products as $product)
                         <tr>
-                            <td>{{$product->id}}</td>
-                            <td>{{$product->name}}</td>
-                            <td><input type="checkbox" name="is_active" {{$product->is_active ? 'checked' : ''}} disabled></td>
-                            <td>
+                            <td class="px-6 py-2 whitespace-nowrap">{{$product->id}}</td>
+                            <td class="px-6 py-2 whitespace-nowrap">{{$product->name}}</td>
+                            <td class="px-6 py-2 whitespace-nowrap"><input type="checkbox" name="is_active" {{$product->is_active ? 'checked' : ''}} disabled></td>
+                            <td class="px-6 py-2 whitespace-nowrap">
                                 <a class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold px-4 rounded" href="/products/{{$product->id}}/edit">Edit</a>
                                 <a class="bg-red-500 hover:bg-red-700 text-white font-bold px-4 rounded" href="/products/{{$product->id}}/delete">Delete</a>
                                 <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded" href="/products/{{$product->id}}/recipe">Recipe</a>
