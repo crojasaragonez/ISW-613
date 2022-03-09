@@ -48,7 +48,7 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
-
+        //CHANGE
         return redirect('/');
     }
 }
