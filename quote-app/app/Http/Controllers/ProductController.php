@@ -61,12 +61,12 @@ class ProductController extends Controller
     {
         if ($request->isMethod('post')) {
             IngredientProduct::create($request->all());
+            alert()->success('Successfull','The ingredient has been added to product');
             return redirect("/products/$id/recipe");
         }
         $product = Product::find($id);
         $ingredients = Ingredient::all();
         $recipe_ingredients = IngredientProduct::where('product_id', $product->id)->get();
-        alert()->success('Successfull','The ingredient has been added to product');
         return view('products.recipe', [
             'product' => $product,
             'recipe_ingredients' => $recipe_ingredients,
@@ -133,6 +133,6 @@ class ProductController extends Controller
             alert()->error('Error','Error to product delete');
             return redirect('/products');
         }
-        
+
     }
 }
