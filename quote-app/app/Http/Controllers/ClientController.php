@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ClientController extends Controller
 {
@@ -63,6 +64,7 @@ class ClientController extends Controller
         ]);
 
         Client::create($request->all());
+        alert()->success('Successfull','The client has been saved');
         return redirect('/clients');
     }
 
@@ -98,6 +100,7 @@ class ClientController extends Controller
         ]);
         $client = Client::find($request->id);
         $client->update($request->all());
+        alert()->success('Successfull','The client has been updated');
         return redirect('/clients');
     }
 
@@ -110,6 +113,7 @@ class ClientController extends Controller
     public function destroy($id)
     {
         Client::destroy($id);
+        alert()->success('Successfull','The client has been deleted');
         return redirect('/clients');
     }
 }

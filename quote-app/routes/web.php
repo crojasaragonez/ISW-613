@@ -19,11 +19,12 @@ use App\Http\Controllers\ProductController;
 
 
 
+
 require __DIR__.'/auth.php';
 
 Route::group(['middleware' => ['auth']], function () {
     //only authenticated users can access these routes
-    Route::get('/', function () {
+    Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
     Route::get('/clients', [ClientController::class, 'index'])->name('clients');
