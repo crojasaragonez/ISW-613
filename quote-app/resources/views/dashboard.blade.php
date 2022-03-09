@@ -9,7 +9,14 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
+                    <div class="flex flex-row justify-center ">
+                        @foreach($quotes as $quote)
+                            <div class="bg-emerald-200" style="width:24%; height:100px; text-align:center; margin:1%;" >
+                            <p>{{$quote->state}}</p>
+                            <h1 style="font-size:40pt"><strong>{{$quote->count}}</strong></h1> 
+                            </div>   
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>

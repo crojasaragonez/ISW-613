@@ -24,9 +24,6 @@
                     <x-nav-link :href="route('products')" :active="request()->routeIs('products')">
                         Products
                     </x-nav-link>
-                    <x-nav-link :href="route('quotes')" :active="request()->routeIs('quotes')">
-                        Quotes
-                    </x-nav-link>
                 </div>
             </div>
 
@@ -83,9 +80,6 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('products')" :active="request()->routeIs('products')">
                 Products
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('quotes')" :active="request()->routeIs('quotes')">
-                Quotes
             </x-responsive-nav-link>
         </div>
 

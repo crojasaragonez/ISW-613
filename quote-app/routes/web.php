@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +27,7 @@ require __DIR__.'/auth.php';
 
 Route::group(['middleware' => ['auth']], function () {
     //only authenticated users can access these routes
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/clients', [ClientController::class, 'index'])->name('clients');
     Route::get('/clients/create', [ClientController::class, 'create']);
     Route::get('/clients/{id}/edit', [ClientController::class, 'edit']);
@@ -58,7 +56,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/ingredients/{id}', [IngredientController::class, 'update']);
     Route::delete('/ingredients/{id}', [IngredientController::class, 'destroy']);
 
-    Route::get('/quotes', [QuoteController::class, 'index'])->name('quotes');
 
 });
 
