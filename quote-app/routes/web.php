@@ -16,17 +16,15 @@ use App\Http\Controllers\ProductController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
-Route::get('/', function () {
-    return view('welcome');
-});*/
+
+
 
 
 require __DIR__.'/auth.php';
 
 Route::group(['middleware' => ['auth']], function () {
     //only authenticated users can access these routes
-    Route::get('/', function () {
+    Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
     Route::get('/clients', [ClientController::class, 'index'])->name('clients');
