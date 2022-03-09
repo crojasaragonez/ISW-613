@@ -16,7 +16,7 @@ class DashboardController extends Controller
     {
         $quotes = Quote::query()->select('state',Quote::raw('count(state)') )->groupBy('state')->get();
 
-        return view('quotes.index', ['quotes' => $quotes]);
+        return view('dashboard', ['quotes' => $quotes]);
     }
 
     

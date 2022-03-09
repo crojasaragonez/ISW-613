@@ -11,7 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="flex flex-row justify-center ">
                         @foreach($quotes as $quote)
-                            <div class="bg-emerald-200" style="width:24%; height:100px; text-align:center; margin:1%;" >
+                            <div class="bg-emerald-200 w-1/4 h-28 text-center ml-12 mr-12" >
                             <p>{{$quote->state}}</p>
                             <h1 style="font-size:40pt"><strong>{{$quote->count}}</strong></h1> 
                             </div>   
