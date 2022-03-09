@@ -17,9 +17,7 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 
 require __DIR__.'/auth.php';
