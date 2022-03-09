@@ -65,7 +65,7 @@ class ClientController extends Controller
 
             Client::create($request->all());
         }catch (\Throwable $th) {
-        return response('Error', 200);
+        return response('Error', 500);
     }
         return redirect('/clients');
     }
@@ -82,7 +82,7 @@ class ClientController extends Controller
             $client = Client::find($id);
             return view('clients.edit', ['client' => $client]);
         }catch (\Throwable $th) {
-            return response('Error', 200);
+            return response('Error', 500);
         }
     }
 
@@ -92,7 +92,7 @@ class ClientController extends Controller
             $client = Client::find($id);
             return view('clients.delete', ['client' => $client]);
         }catch (\Throwable $th) {
-            return response('Error', 200);
+            return response('Error', 500);
         }
     }
 
@@ -113,7 +113,7 @@ class ClientController extends Controller
             $client->update($request->all());
             return redirect('/clients');
         }catch (\Throwable $th) {
-            return response('Error', 200);
+            return response('Error', 500);
     }
     }
 
@@ -129,7 +129,7 @@ class ClientController extends Controller
             Client::destroy($id);
             return redirect('/clients');
         }catch (\Throwable $th) {
-            return response('Error', 200);
+            return response('Error', 500);
         }
     }
 }

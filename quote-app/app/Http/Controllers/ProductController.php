@@ -54,7 +54,7 @@ class ProductController extends Controller
 
         Product::create($request->all());
         }catch (\Throwable $th) {
-            return response('Error', 200);
+            return response('Error', 500);
     }
         return redirect('/products');
     }
@@ -75,7 +75,7 @@ class ProductController extends Controller
                 'ingredients' => $ingredients
             ]);
         }catch (\Throwable $th) {
-        return response('Error', 200);
+        return response('Error', 500);
     }
     }
 
@@ -85,7 +85,7 @@ class ProductController extends Controller
 
         IngredientProduct::where(['id' => $request->id, 'product_id' => $request->product_id])->delete();
         } catch (\Throwable $th) {
-            return response('Error', 200);
+            return response('Error', 500);
         }
 
         return redirect("/products/$request->product_id/recipe");
@@ -97,7 +97,7 @@ class ProductController extends Controller
             $product = Product::find($id);
             return view('products.delete', ['product' => $product]);
         }catch (\Throwable $th) {
-            return response('Error', 200);
+            return response('Error', 500);
         }
     }
     /**
@@ -112,7 +112,7 @@ class ProductController extends Controller
             $product = Product::find($id);
             return view('products.edit', ['product' => $product]);
         } catch (\Throwable $th) {
-            return response('Error', 200);
+            return response('Error', 500);
         }
     }
 
@@ -133,7 +133,7 @@ class ProductController extends Controller
             $product = Product::find($request->id);
             $product->update($request->all());
         } catch (\Throwable $th) {
-            return response('Error', 200);
+            return response('Error', 500);
         }
         return redirect('/products');
     }
@@ -149,7 +149,7 @@ class ProductController extends Controller
         try {
             Product::destroy($id);
         } catch (\Throwable $th) {
-            return response('Error', 200);
+            return response('Error', 500);
         }
         return redirect('/products');
     }

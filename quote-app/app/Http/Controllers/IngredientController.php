@@ -61,7 +61,7 @@ class IngredientController extends Controller
 
             Ingredient::create($request->all());
         }catch (\Throwable $th) {
-            return response('Error', 200);
+            return response('Error', 500);
         }
         return redirect('/ingredients');
     }
@@ -78,7 +78,7 @@ class IngredientController extends Controller
         $ingredients = Ingredient::find($id);
         return view('ingredients.edit', ['ingredients' => $ingredients]);
         } catch (\Throwable $th) {
-            return response('Error', 200);
+            return response('Error', 500);
         }
     }
 
@@ -88,7 +88,7 @@ class IngredientController extends Controller
             $ingredients = Ingredient::find($id);
         return view('ingredients.delete', ['ingredients' => $ingredients]);
         }catch (\Throwable $th) {
-            return response('Error', 200);
+            return response('Error', 500);
         }
     }
 
@@ -110,7 +110,7 @@ class IngredientController extends Controller
         $ingredients = Ingredient::find($request->id);
         $ingredients->update($request->all());
     }catch (\Throwable $th) {
-        return response('Error', 200);
+        return response('Error', 500);
     }
         return redirect('/ingredients');
     }
@@ -126,7 +126,7 @@ class IngredientController extends Controller
         try{
             Ingredient::destroy($id);
         }catch (\Throwable $th) {
-            return response('Error', 200);
+            return response('Error', 500);
         }
         return redirect('/ingredients');
         
