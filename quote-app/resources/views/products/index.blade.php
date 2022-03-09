@@ -39,7 +39,7 @@
                         <tr>
                             <td>{{$product->id}}</td>
                             <td>{{$product->name}}</td>
-                            <td>{{$product->is_active}}</td>
+                            <td><input type="checkbox" name="is_active" {{$product->is_active ? 'checked' : ''}} disabled></td>
                             <td>
                                 <a class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold px-4 rounded" href="/products/{{$product->id}}/edit">Edit</a>
                                 <a class="bg-red-500 hover:bg-red-700 text-white font-bold px-4 rounded" href="/products/{{$product->id}}/delete">Delete</a>

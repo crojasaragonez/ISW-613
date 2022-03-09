@@ -24,7 +24,8 @@
                         <label>Name:</label>
                         <input type="text" name="name" required value="{{$product->name}}">
                         <label>Is Active:</label>
-                        <input type="is_active" name="is_active" required value="{{$product->is_active}}">
+                        <input type="hidden" name="is_active" value="0">
+                        <input type="checkbox" name="is_active" value="1" {{$product->is_active || old('is_active', 0) === 1 ? 'checked' : ''}}>
                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
                         <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" href="/products">Cancel</a>
                     </form>
