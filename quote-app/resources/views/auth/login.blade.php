@@ -1,25 +1,7 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
-    <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center float">
-                    <a href="{{ route('register') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
-                    </a>
-                    <x-nav-link :href="route('register')" :active="request()->routeIs('register')" class="block h-10 w-auto fill-current text-gray-600" >
-                        Register
-                    </x-nav-link>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="">
+            <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
@@ -37,7 +19,7 @@
             <div>
                 <x-label for="email" :value="__('Email')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required/>
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <!-- Password -->
