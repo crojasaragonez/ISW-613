@@ -25,10 +25,10 @@
                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save</button>
                         <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" href="/products">Cancel</a>
                     </form>
-                    <ul class="ingredients">
+                    <ul class="mt-6">
                         <label>Ingredients:</label>
                         @forelse ($recipe_ingredients as $line)
-                        <li class="inline">
+                        <li class="inline mt-2">
                             <div class="mr-2">
                                 <form method="POST" action="/products/{{$product->id}}/recipe/{{$line->id}}">
                                     @csrf
