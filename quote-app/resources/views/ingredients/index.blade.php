@@ -33,21 +33,21 @@
                             </form>
                         </tr>
                         <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Unit</th>
-                            <th>Quantity</th>
-                            <th></th>
+                            <th scope="col" class="px-6 py-4 text-left uppercase tracking-wider">Id</th>
+                            <th scope="col" class="px-6 py-4 text-left uppercase tracking-wider">Name</th>
+                            <th scope="col" class="px-6 py-4 text-left uppercase tracking-wider">Unit</th>
+                            <th scope="col" class="px-6 py-4 text-left uppercase tracking-wider">Quantity</th>
+                            <th scope="col" class="px-6 py-4 text-left uppercase tracking-wider"></th>
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                         @forelse ($ingredients as $ingredient)
                         <tr>
-                            <td>{{$ingredient->id}}</td>
-                            <td>{{$ingredient->name}}</td>
-                            <td>{{$ingredient->unit}}</td>
-                            <td>{{$ingredient->quantity}}</td>
-                            <td>
+                            <td class="px-6 py-2 whitespace-nowrap">{{$ingredient->id}}</td>
+                            <td class="px-6 py-2 whitespace-nowrap">{{$ingredient->name}}</td>
+                            <td class="px-6 py-2 whitespace-nowrap">{{$ingredient->unit}}</td>
+                            <td class="px-6 py-2 whitespace-nowrap">{{$ingredient->quantity}}</td>
+                            <td class="px-6 py-2 whitespace-nowrap">
                                 <a class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold px-4 rounded" href="/ingredients/{{$ingredient->id}}/edit">Edit</a>
                                 <a class="bg-red-500 hover:bg-red-700 text-white font-bold px-4 rounded" href="/ingredients/{{$ingredient->id}}/delete">Delete</a>
                             </td>
