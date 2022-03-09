@@ -57,3 +57,4 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/ingredients/{id}', [IngredientController::class, 'update']);
     Route::delete('/ingredients/{id}', [IngredientController::class, 'destroy']);
 });
+
